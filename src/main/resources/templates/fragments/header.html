@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<!--/*  Multiple fragments may be defined in one file */-->
+<nav class="white" role="navigation" th:fragment="header">
+    <div class="nav-wrapper container">
+        <a id="logo-container" th:href="@{/}" class="brand-logo">Тус-Тус-Агрегатор</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a th:href="@{/catalog/}">Поездки</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+            <li><a th:href="@{/catalog/}">Поездки</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+</body>
+</html>
