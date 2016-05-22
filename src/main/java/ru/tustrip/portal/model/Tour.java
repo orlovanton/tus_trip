@@ -47,10 +47,10 @@ public class Tour {
     private Currency currency;
 
     @Column
-    private Boolean isFlightIncluded;
+    private Boolean flightIncluded = false;
 
     @Column
-    private Boolean isPublished;
+    private Boolean published = false;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column
@@ -147,20 +147,20 @@ public class Tour {
         this.currency = currency;
     }
 
-    public Boolean getIsFlightIncluded() {
-        return isFlightIncluded;
+    public Boolean getFlightIncluded() {
+        return flightIncluded;
     }
 
-    public void setIsFlightIncluded(Boolean isFlightIncluded) {
-        this.isFlightIncluded = isFlightIncluded;
+    public void setFlightIncluded(Boolean flightIncluded) {
+        this.flightIncluded = flightIncluded;
     }
 
-    public Boolean getIsPublished() {
-        return isPublished;
+    public Boolean getPublished() {
+        return published;
     }
 
-    public void setIsPublished(Boolean isPublished) {
-        this.isPublished = isPublished;
+    public void setPublished(Boolean published) {
+        this.published = published;
     }
 
     public Date getPublishDate() {

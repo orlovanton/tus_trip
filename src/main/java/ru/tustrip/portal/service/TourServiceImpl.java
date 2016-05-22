@@ -39,6 +39,11 @@ public class TourServiceImpl implements TourService {
     }
 
     @Override
+    public List<Tour> getAllPublishedTours() {
+        return repository.findToursByPublished(true);
+    }
+
+    @Override
     public List<Tour> getAgentTours(Agent agent) {
         return repository.findToursByAgent(agent);
     }

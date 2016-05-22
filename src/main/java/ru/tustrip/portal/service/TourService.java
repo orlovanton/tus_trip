@@ -18,6 +18,8 @@ public interface TourService {
 
     List<Tour> getAllTours();
 
+    List<Tour> getAllPublishedTours();
+
     List<Tour> getAgentTours(final Agent agent);
 
 

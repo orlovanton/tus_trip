@@ -44,8 +44,8 @@ public class BaseMock {
             tour.setDiscount(1000.00);
             tour.setStartDate(new Date());
             tour.setEndDate(new Date(new Date().getTime() + (1000 * 60 * 60 * 24 * 365)));
-            tour.setIsPublished(true);
-            tour.setIsFlightIncluded(false);
+            tour.setPublished(true);
+            tour.setFlightIncluded(false);
             tour.setMainImageUrl("test_image.jpg");
             tour.setDescription("Lorem Ipsum - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.");
 
@@ -62,8 +62,8 @@ public class BaseMock {
             tour.setDiscount(0.00);
             tour.setStartDate(new Date());
             tour.setEndDate(new Date(new Date().getTime() + (1000 * 60 * 60 * 24 * 365)));
-            tour.setIsPublished(true);
-            tour.setIsFlightIncluded(false);
+            tour.setPublished(true);
+            tour.setFlightIncluded(false);
             tour.setMainImageUrl("test_image.jpg");
             tour.setDescription("Lorem Ipsum - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.");
         }

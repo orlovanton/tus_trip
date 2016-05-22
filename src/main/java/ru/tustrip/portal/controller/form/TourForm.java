@@ -21,6 +21,7 @@ public class TourForm {
 
     @NotNull
     private Double price;
+
     @NotNull
     //todo
 //    @Size(min=100, max=2000)

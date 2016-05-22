@@ -15,4 +15,6 @@ public interface TourRepository  extends JpaRepository<Tour,Long>{
 
     List<Tour> findToursByAgent(final Agent agent);
 
+    List<Tour> findToursByPublished(Boolean isPublished);
+
 }

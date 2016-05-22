@@ -17,29 +17,38 @@
     }
 </style>
 <body>
-<div th:replace="admin/fragments/header :: header"></div>
+<div th:replace="agent/fragments/header :: header"></div>
 <div class="container">
     <div class="section">
         <div class="row">
-            <h1>Добавить Тур | Шаг 1</h1>
-            <form class="col s12" action="#" th:action="@{/agent_interface/add_tour/}" th:object="${tourForm}" method="post">
+            <h1>Добавить Тур | Шаг 1 - основная информация</h1>
+
+            <form class="col s12" action="#" th:action="@{/agent_interface/add_tour/}" th:object="${tourForm}"
+                  method="post">
                 <div class="row">
                     <div class="input-field col s6">
                         <input placeholder="Название тура" id="first_name" type="text" class="validate"
                                th:field="*{name}">
+
                         <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
                         <label for="first_name">Название тура</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input placeholder="Вид активности" id="activity" type="text" class="validate">
+                        <input placeholder="Вид активности" id="activity" type="text" class="validate"
+                               th:field="*{activity}">
+
+                        <div th:if="${#fields.hasErrors('activity')}" th:errors="*{activity}">Activity Error</div>
                         <label for="activity">Вид активности</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input placeholder="Стоимость" id="price" type="number" class="validate">
+                        <input placeholder="Стоимость" id="price" type="number" class="validate"
+                               th:field="*{price}">
+
+                        <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Activity Error</div>
                         <label for="price">Стоимость</label>
                     </div>
                 </div>
@@ -59,7 +68,10 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="description" class="materialize-textarea"></textarea>
+                        <textarea id="description" class="materialize-textarea"
+                                  th:field="*{description}"></textarea>
+
+                        <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Activity Error</div>
                         <label for="description">Описание поездки</label>
                     </div>
                 </div>

@@ -23,6 +23,9 @@
                         <td th:text="${tour.startDate}"></td>
                         <td th:text="${tour.endDate}"></td>
                         <td th:text="${tour.agent.name}"></td>
+                        <td th:text="${tour.mainImageUrl}"></td>
+                        <td> <a  th:href="@{/agent_interface/add_tour_image/{tourId}(tourId=${tour.id})}">Изображение</a> </td>
+
                     </tr>
                 </table>
                 <a th:href="@{/agent_interface/add_tour/}">Добавить Тур</a>

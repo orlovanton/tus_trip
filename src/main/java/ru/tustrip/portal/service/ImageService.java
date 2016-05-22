@@ -20,7 +20,7 @@ public class ImageService {
     private static final Logger logger = LoggerFactory
             .getLogger(ImageService.class);
 
-    public static final String PROMO_IMG_PREFIX="promo_image";
+    public static final String PROMO_IMG_PREFIX = "promo_image";
 
 
     @Value("${image.upload.directory}")
@@ -32,24 +32,22 @@ public class ImageService {
         Long agentId = tour.getAgent().getId();
         Long tourId = tour.getId();
 
-        File agentDir = new File(imageUploadDir + agentId + "/");
+        File agentDir = new File(imageUploadDir + agentId);
         createDirIfNotExists(agentDir);
-        File tourDir = new File(agentDir.getPath() + tourId + "/");
+        File tourDir = new File(agentDir.getPath() + "/" + tourId);
         createDirIfNotExists(tourDir);
 
-        String imageName = PROMO_IMG_PREFIX + agentId + "_" + tourId +".jpg";
-        File imageFile = new File(tourDir + imageName);
+        String imageName = PROMO_IMG_PREFIX + "_" + agentId + "_" + tourId + ".jpg";
+        File imageFile = new File(tourDir + "/" + imageName);
         try {
-
             FileUtils.writeByteArrayToFile(imageFile, bytes);
-        }catch (IOException ex){
+        } catch (IOException ex) {
 //            todo
             logger.error("fail to save image", ex);
         }
         logger.info("image saved");
-        return agentId + "/" + tourId +"/" + imageFile;
+        return agentId + "/" + tourId + "/" + imageName;
     }
-
 
 
     private static void createDirIfNotExists(File dir) {
