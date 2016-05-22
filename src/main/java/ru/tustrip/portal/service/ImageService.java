@@ -29,8 +29,8 @@ public class ImageService {
 
     public String saveTourPromoImage(byte[] bytes, final Tour tour) {
 
-        Integer agentId = tour.getAgent().getId();
-        Integer tourId = tour.getId();
+        Long agentId = tour.getAgent().getId();
+        Long tourId = tour.getId();
 
         File agentDir = new File(imageUploadDir + agentId + "/");
         createDirIfNotExists(agentDir);

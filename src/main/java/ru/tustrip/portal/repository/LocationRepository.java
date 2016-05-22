@@ -8,5 +8,5 @@ import ru.tustrip.portal.model.Location;
  * Created by antonorlov on 20/05/16.
  */
 @Repository
-public interface LocationRepository extends JpaRepository<Location,Integer> {
+public interface LocationRepository extends JpaRepository<Location,Long> {
 }

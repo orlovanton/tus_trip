@@ -12,8 +12,8 @@ import javax.persistence.GenerationType;
 public class Location {
 
     @javax.persistence.Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column
     private String country;
@@ -30,13 +30,10 @@ public class Location {
     public Location() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getCountry() {
         return country;

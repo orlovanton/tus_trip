@@ -16,7 +16,7 @@ public class BestOffer {
     private Tour tour;
 
     @Column
-    private Integer order;
+    private Integer orderNum;
 
     public BestOffer() {
     }
@@ -37,11 +37,11 @@ public class BestOffer {
         this.tour = tour;
     }
 
-    public Integer getOrder() {
-        return order;
+    public Integer getOrderNum() {
+        return orderNum;
     }
 
-    public void setOrder(Integer order) {
-        this.order = order;
+    public void setOrderNum(Integer orderNum) {
+        this.orderNum = orderNum;
     }
 }

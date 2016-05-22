@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface AgentService {
 
-    void saveAgent(final Agent agent);
+    Agent saveAgent(final Agent agent);
 
-    Agent getAgent(final Integer id);
+    Agent getAgent(final Long id);
 
     void deleteAgent(final Agent agent);
 

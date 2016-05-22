@@ -1,10 +1,11 @@
 package ru.tustrip.portal.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.tustrip.portal.mock.BaseMock;
+import ru.tustrip.portal.model.Agent;
 import ru.tustrip.portal.model.Tour;
+import ru.tustrip.portal.repository.TourRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,27 +14,32 @@ import java.util.List;
 @Service
 public class TourServiceImpl implements TourService {
 
-    @Override
-    public void saveTour(Tour tour) {
+    @Autowired
+    private TourRepository repository;
 
+    @Override
+    public Tour saveTour(Tour tour) {
+        return repository.save(tour);
     }
 
     @Override
-    public Tour getTour(Integer id) {
-        return BaseMock.getTour();
+    public Tour getTour(Long id) {
+        return repository.findOne(id);
     }
 
     @Override
     public void deleteTour(Tour tour) {
-
+        //todo
+        throw new UnsupportedOperationException("not impl");
     }
 
     @Override
     public List<Tour> getAllTours() {
+        return  repository.findAll();
+    }
 
-        List<Tour> tours = new ArrayList<>();
-        tours.add(BaseMock.getTour());
-        tours.add(BaseMock.getTour());
-        return tours;
+    @Override
+    public List<Tour> getAgentTours(Agent agent) {
+        return repository.findToursByAgent(agent);
     }
 }

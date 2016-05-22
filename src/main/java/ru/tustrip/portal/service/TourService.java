@@ -1,5 +1,6 @@
 package ru.tustrip.portal.service;
 
+import ru.tustrip.portal.model.Agent;
 import ru.tustrip.portal.model.Tour;
 
 import java.util.List;
@@ -9,11 +10,15 @@ import java.util.List;
  */
 public interface TourService {
 
-    void saveTour(final Tour tour);
+    Tour saveTour(final Tour tour);
 
-    Tour getTour(final Integer id);
+    Tour getTour(final Long id);
 
     void deleteTour(final Tour tour);
 
     List<Tour> getAllTours();
+
+    List<Tour> getAgentTours(final Agent agent);
+
+
 }

@@ -11,7 +11,7 @@
     <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
+<div th:replace="client/fragments/header :: header"></div>
 <!--<div th:replace="fragments/index-banner :: index-banner"> </div>-->
 <div class="container">
     <div class="section">
@@ -26,12 +26,12 @@
                    th:href="@{/tour/{id}(id=${tour.id})}">Подробнее</a>
             </div>
         </div>
-        <div th:replace="fragments/icon-section :: icon-section"></div>
+        <div th:replace="client/fragments/icon-section :: icon-section"></div>
     </div>
 </div>
 
 
-<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="client/fragments/footer :: footer"></div>
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

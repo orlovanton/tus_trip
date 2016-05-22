@@ -10,8 +10,9 @@ import java.util.List;
 public class Agent {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -29,7 +30,7 @@ public class Agent {
     private String contactPerson;
 
     @Column
-    private Integer order = 0;
+    private Integer orderNum = 0;
 
     //todo: legal info
 
@@ -37,12 +38,8 @@ public class Agent {
     public Agent() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -85,12 +82,12 @@ public class Agent {
         this.contactPerson = contactPerson;
     }
 
-    public Integer getOrder() {
-        return order;
+    public Integer getOrderNum() {
+        return orderNum;
     }
 
-    public void setOrder(Integer order) {
-        this.order = order;
+    public void setOrderNum(Integer orderNum) {
+        this.orderNum = orderNum;
     }
 
     @Override
@@ -102,7 +99,7 @@ public class Agent {
         sb.append(", activityList=").append(activityList);
         sb.append(", contacts=").append(contacts);
         sb.append(", contactPerson='").append(contactPerson).append('\'');
-        sb.append(", order=").append(order);
+        sb.append(", orderNum=").append(orderNum);
         sb.append('}');
         return sb.toString();
     }

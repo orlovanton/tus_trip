@@ -1,8 +1,9 @@
 package ru.tustrip.portal.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.tustrip.portal.mock.BaseMock;
 import ru.tustrip.portal.model.Agent;
+import ru.tustrip.portal.repository.AgentRepository;
 
 import java.util.List;
 
@@ -12,23 +13,29 @@ import java.util.List;
 @Service
 public class AgentServiceImpl implements AgentService {
 
-    @Override
-    public void saveAgent(Agent agent) {
+    @Autowired
+    private AgentRepository repository;
 
+    @Override
+    public Agent saveAgent(Agent agent) {
+        //todo validation
+        Agent saved = repository.save(agent);
+        return saved;
     }
 
     @Override
-    public Agent getAgent(Integer id) {
-        return BaseMock.getAgent();
+    public Agent getAgent(Long id) {
+        return repository.getOne(id);
     }
 
     @Override
     public void deleteAgent(Agent agent) {
-
+        //todo:
+        throw new UnsupportedOperationException("not impl");
     }
 
     @Override
     public List<Agent> getAllAgents() {
-        return null;
+       return repository.findAll();
     }
 }

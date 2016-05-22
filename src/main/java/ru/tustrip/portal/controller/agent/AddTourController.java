@@ -1,4 +1,4 @@
-package ru.tustrip.portal.controller.admin;
+package ru.tustrip.portal.controller.agent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,35 +32,35 @@ public class AddTourController {
     private ImageService imageService;
 
 
-    @RequestMapping(value = "/admin/add_tour/", method = RequestMethod.GET)
+    @RequestMapping(value = "/agent_interface/add_tour/", method = RequestMethod.GET)
     private String addTourGet(final Model model, TourForm tourForm) {
         return "/admin/add_tour";
     }
 
-    @RequestMapping(value = "/admin/add_tour/", method = RequestMethod.POST)
+    @RequestMapping(value = "/agent_interface/add_tour/", method = RequestMethod.POST)
     private String addTourPost(final Model model, @Valid TourForm tourForm,
                                BindingResult bindingResult) {
         logger.info("tourForm submitted");
         logger.info(tourForm.toString());
 
         if (bindingResult.hasErrors()) {
-            return "/admin/add_tour";
+            return "/agent/add_tour";
         }
 
-
-
-        return "/admin/add_tour";
+        //todo: next step
+        return "/agent/add_tour";
     }
 
     @RequestMapping(value = "/admin/add_tour_image/", method = RequestMethod.GET)
     private String addTourImageGet(final Model model) {
+        //todo: push created tour
         return "/admin/add_tour";
     }
 
     @RequestMapping(value = "/admin/add_tour_image/", method = RequestMethod.POST)
     private String addTourImagePost(final Model model) {
-
-        return "/admin/add_tour";
+//todo
+        return "/agent/add_tour_image";
     }
 
 

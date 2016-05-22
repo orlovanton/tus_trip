@@ -8,5 +8,5 @@ import ru.tustrip.portal.model.Agent;
  * Created by antonorlov on 20/05/16.
  */
 @Repository
-public interface AgentRepository extends JpaRepository<Agent,Integer> {
+public interface AgentRepository extends JpaRepository<Agent,Long> {
 }

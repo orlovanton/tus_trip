@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<!--/*  Multiple fragments may be defined in one file */-->
+<nav class="white" role="navigation" th:fragment="header">
+    <div class="nav-wrapper container">
+        <a id="logo-container" th:href="@{/admin/}" class="brand-logo">
+            Админка</a>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <a href="#"> Пользователь <b sec:authentication="name">Bob</b>
+                </a>
+            </li>
+            <li>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="waves-effect waves-light btn"> Выход</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

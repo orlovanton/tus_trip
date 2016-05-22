@@ -10,9 +10,10 @@ import java.util.List;
 @Entity
 public class Tour {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
+    @Column
+    private Long Id;
 
     @Column
     private String name;
@@ -55,7 +56,7 @@ public class Tour {
     @Column
     private Date publishDate;
 
-    @Column
+    @Column(length = 200000)
     private String description;
 
     @Column
@@ -65,17 +66,13 @@ public class Tour {
 //    private List<String> images;
 
     @Column
-    private Integer order; //sorting
+    private Integer orderNum; //sorting
 
     public Tour() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return Id;
-    }
-
-    public void setId(Integer id) {
-        Id = id;
     }
 
     public String getName() {
@@ -190,11 +187,11 @@ public class Tour {
         this.mainImageUrl = mainImageUrl;
     }
 
-    public Integer getOrder() {
-        return order;
+    public Integer getOrderNum() {
+        return orderNum;
     }
 
-    public void setOrder(Integer order) {
-        this.order = order;
+    public void setOrderNum(Integer orderNum) {
+        this.orderNum = orderNum;
     }
 }

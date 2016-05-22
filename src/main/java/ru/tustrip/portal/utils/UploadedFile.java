@@ -1,4 +1,4 @@
-package ru.tustrip.portal.controller.admin;
+package ru.tustrip.portal.utils;
 
 /**
  * Created by antonorlov on 21/05/16.

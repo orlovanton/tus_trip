@@ -23,6 +23,7 @@ public class AdminMainController {
 
 //        model.addAttribute("agent",agentService.getAllAgents());
         model.addAttribute("tours",tourService.getAllTours());
+        model.addAttribute("agents", agentService.getAllAgents());
         return "/admin/admin";
     }
 }
