@@ -53,7 +53,7 @@ public class MockDataController {
             Agent agent = BaseMock.getAgent();
             Agent savedAgent = agentService.saveAgent(agent);
 
-            PortalUser agentUser = new PortalUser("agent", "mouse", "orlov88@gmail.com", UserRole.ROLE_AGENT, savedAgent.getId());
+            PortalUser agentUser = new PortalUser("agent", "mouse", "mouse-rpg@gmail.com", UserRole.ROLE_AGENT, savedAgent.getId());
             PortalUser portalUser = userService.saveUser(agentUser);
 
             Tour tour = BaseMock.getTour(0);

@@ -1,5 +1,6 @@
 package ru.tustrip.portal.model;
 
+import javax.annotation.Nullable;
 import javax.persistence.*;
 
 /**
@@ -16,10 +17,14 @@ public class PortalUser {
     @Column(nullable = false, unique = true)
     private String login;
 
+    @Column
+    @Nullable
+    private String name;
+
     @Column(nullable = false)
     private String password;
 
-    @Column
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
@@ -29,9 +34,17 @@ public class PortalUser {
     @Column
     private Long agentId;
 
-
     @Column
     private boolean blocked = false;
+
+
+    //todo: additional info
+//    private String name;
+//    private String surname;
+//    private String email;
+//    private String vkId;
+//    private Integer tourId;
+
 
     public PortalUser() {
     }
@@ -93,5 +106,22 @@ public class PortalUser {
 
     public void setAgentId(Long agentId) {
         this.agentId = agentId;
+    }
+
+    @Nullable
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@Nullable String name) {
+        this.name = name;
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 }

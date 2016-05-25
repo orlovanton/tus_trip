@@ -11,4 +11,6 @@ import ru.tustrip.portal.model.PortalUser;
 public interface PortalUserRepository extends JpaRepository<PortalUser,Long> {
 
     PortalUser findPortalUserByLogin(final String name);
+
+    PortalUser findPortalUserByEmail(final String email);
 }

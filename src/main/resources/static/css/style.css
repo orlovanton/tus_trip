@@ -8,64 +8,135 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+    color: #444;
 }
 
 p {
-  line-height: 2rem;
+    line-height: 2rem;
 }
 
 .button-collapse {
-  color: #26a69a;
+    color: #26a69a;
 }
 
 .parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255, 255, 255, .9);
 }
-  .parallax-container .section {
+
+.parallax-container .section {
     width: 100%;
-  }
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
 }
 
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+@media only screen and (max-width: 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #index-banner .section {
+        top: 0;
+    }
 }
 
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
+
 .icon-block .material-icons {
-  font-size: inherit;
+    font-size: inherit;
 }
 
 footer.page-footer {
-  margin: 0;
+    margin: 0;
 }
 
-.border-grey{
-  border: 1px solid #f2f2f2;
+.border-grey {
+    border: 1px solid #f2f2f2;
 }
 
-h1{
-  font-size: 2em;
+h1 {
+    font-size: 2em;
 }
-h2{
-  font-size: 1.5em;
+
+h2 {
+    font-size: 1.5em;
 }
-h3{
-  font-size: 1.2em;
+
+h3 {
+    font-size: 1.2em;
+}
+
+.tour-card {
+    padding: 0.5em;
+    border-bottom: 1px #dadada solid;
+
+    /*border: 1px solid red;*/
+}
+
+.tour-card .title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.tour-card .currency {
+    color: #ccc;
+}
+
+.tour-card .header-panel {
+    height: 3em;
+}
+
+.tour-card .price {
+    padding-top: 0;
+    font-size: 1.5em;
+    color: orange;
+}
+
+.tour-card .footer-panel {
+    padding: 0.5em 0 0 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.page-header {
+    /*padding: 0.5em;*/
+    color: rgba(0, 0, 0, .87);
+    border-bottom: 1px #dadada solid;
+    font-size: 1.5em;
+}
+
+.bg-image {
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-content {
+    padding: 1em;
+}
+
+.filter-item {
+    border-bottom: 1px dotted #dadada;
+    margin: 1em 0 1em 0;
+}
+
+.footer-panel {
+    padding: 1em 0 1em 0;
 }

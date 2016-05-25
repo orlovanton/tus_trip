@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<!--/*  Multiple fragments may be defined in one file */-->
+
+<section th:fragment="get-coupon-fragment" class="card">
+    <div class="card-title">
+        <div class="page-header">
+            <a href="#">Оформление купона</a>
+        </div>
+    </div>
+    <div class="card-content">
+        <h2 th:text="${tour.name}"></h2>
+        <h2> <span th:text="${tour.price}"></span> руб.</h2>
+        <div><b>Тут какой-нибудь текст про купон </b> <br>
+            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в
+            60-х
+            годах и,
+            в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых
+            используется
+            Lorem Ipsum.
+        </div>
+        <form action="#" th:action="@{/get_coupon/}" th:object="${couponForm}" method="post">
+            <input type="hidden" th:field="*{tourId}" th:value="${tourId}">
+            <div>
+                <div class="input-field">
+                    <input placeholder="Имя" id="name" type="text" class="validate"
+                           th:field="*{name}">
+
+                    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+                    <label for="name">Имя</label>
+                </div>
+            </div>
+            <div>
+                <div class="input-field">
+                    <input placeholder="Email" id="email" type="email" class="validate"
+                           th:field="*{email}">
+
+                    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="waves-effect waves-light btn">Подписаться</button>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+</body>
+</html>

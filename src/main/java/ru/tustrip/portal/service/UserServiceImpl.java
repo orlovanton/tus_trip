@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public PortalUser getUserByEmail(String email) {
+        return userRepository.findPortalUserByEmail(email);
+    }
+
+    @Override
     public PortalUser saveUser(PortalUser user) throws UserAlreadyExistsException {
         //проверяем нет ли такого юзера
         PortalUser portalUserByLogin = userRepository.findPortalUserByLogin(user.getLogin());

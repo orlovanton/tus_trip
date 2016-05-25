@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<!--/*  Multiple fragments may be defined in one file */-->
+
+<div id="subscribe-news-modal" class="modal modal-fixed-footer" th:fragment="subscribe-news-modal">
+    <div class="modal-content">
+        <h4>Подписаться</h4>
+
+        <div>Тут какой-нибудь текст про новости <br>
+            Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в
+            60-х
+            годах и,
+            в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых
+            используется
+            Lorem Ipsum.
+        </div>
+        <!--<form class="col s12" action="#" th:action="@{/get_coupon/}" th:object="${tourForm}">-->
+        <div>
+            <div class="input-field">
+                <input placeholder="Имя" id="name" type="text" class="validate">
+                       <!--th:field="*{name}"-->
+
+                <!--<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>-->
+                <label for="name">Имя</label>
+            </div>
+        </div>
+        <div>
+            <div class="input-field">
+                <input placeholder="Email" id="email" type="email" class="validate">
+                       <!--th:field="*{email}"-->
+
+                <!--<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</div>-->
+            </div>
+        </div>
+        <div>
+            <button class="waves-effect waves-light btn">Подписаться</button>
+            <!--type="submit" -->
+        </div>
+    </div>
+
+
+</div>
+<div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Подписаться</a>
+</div>
+</div>
+
+</body>
+</html>

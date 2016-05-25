@@ -14,6 +14,8 @@ public interface UserService {
 
     PortalUser saveUser(final PortalUser user) throws UserAlreadyExistsException;
 
+    PortalUser getUserByEmail(final String email);
+
     void blockUser(final PortalUser user);
 
     void unblockUser(final PortalUser user);

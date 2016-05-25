@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    <title>Тус-Тус-Агрегатор</title>
+    <title>Курон отправлен на email</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -16,37 +16,27 @@
 <main>
     <div class="container">
         <div class="row">
-            <div class="col s12 m9 l10">
+            <div class="col s12 m12 l12">
                 <section class="card">
                     <span class="card-title">
 								<div class="page-header">
-                                    <a href="./news/">Поездки</a>
+                                    <a href="#">Купон создан</a>
                                 </div>
 							</span>
 
-                    <div class="col s12" th:each="tour,iterStat : ${tours}" th:remove="tag">
-                        <article th:replace="client/fragments/tour-card :: tour-card"></article>
-                    </div>
-                </section>
-                <!--<div class="row">-->
-
-                <!--</div>-->
-            </div>
-            <div class="col hide-on-small-only m3 l2">
-                <section class="card">
-                    <div class="card-title">
-                        <div class="page-header">
-                            <a href="#">Фильтр</a>
-                        </div>
-                    </div>
                     <div class="card-content">
-                        Подпишись и будь в курсе
-                    </div>
-                    <div class="card-action">
-                        <a class="modal-trigger"
-                           href="#subscribe-news-modal">Подписаться</a>
+                        <p class="center-align"><i class="large material-icons">email</i>
+                        </p>
+
+                        <p class="center-align">
+                            Уважаемый <span th:text="${user.name}"></span>, информация отправлена на
+                            <b th:text="${user.email}"></b>
+                            <br>
+                            Мы рады что вы выбрали <b th:text="${tour.name}"></b> !
+                        </p>
                     </div>
                 </section>
+
             </div>
             <div class="row">
                 <div class="col s12 m9 l10">

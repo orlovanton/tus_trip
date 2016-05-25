@@ -16,24 +16,51 @@
 <div class="container">
     <div class="section">
         <div class="row">
-        <div class="col s12 m3">
-            <div class="card-panel">
-            Фильтр
-            </div>
-        </div>
-        <div class="col s12 m9">
-            <div class="row">
-                <div class="col s12 card-panel hoverable" th:each="tour,iterStat : ${tours}">
-                    <div class="" th:text="${tour.name}"></div>
-                    <div class="right" style="position: relative;">
-                        <span th:text="${tour.price}"></span> <span> руб.</span>
+            <div class="col s12 m3">
+                <section class="card">
+                    <div class="card-title">
+                        <div class="page-header">
+                            <a href="#">Фильтр</a>
+                        </div>
                     </div>
-                    <p th:text="${tour.description}"></p>
-                    <a class="waves-effect waves-light btn"
-                       th:href="@{/tour/{id}(id=${tour.id})}">Подробнее</a>
-                </div>
+                    <div class="card-content">
+                        <div class="input-field filter-item">
+                            <select>
+                                <option value="" disabled selected>Я люблю</option>
+                                <option value="1">Пиво</option>
+                                <option value="2">Орехи</option>
+                                <option value="3">Женщин</option>
+                            </select>
+                            <label>Направление</label>
+                        </div>
+
+                        <div class="input-field">
+                            <select>
+                                <option value="" disabled selected>Я не люблю</option>
+                                <option value="1">Пиво</option>
+                                <option value="2">Орехи</option>
+                                <option value="3">Женщин</option>
+                            </select>
+                            <label>Направление</label>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="#"> Поиск</a>
+                    </div>
+                </section>
             </div>
-        </div>
+            <div class="col s12 m9">
+                <section class="card">
+                    <div class="card-title">
+                        <div class="page-header">
+                            <a href="#">Поездки</a>
+                        </div>
+                    </div>
+                    <div class="col s12" th:each="tour,iterStat : ${tours}" th:remove="tag">
+                        <article th:replace="client/fragments/tour-card :: tour-card"></article>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 </div>
@@ -43,8 +70,14 @@
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/init.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+</script>
 
 </body>
 </html>

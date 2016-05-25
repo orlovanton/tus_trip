@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<!--hoverable card-panel-->
+<div class=" tour-card" th:fragment="tour-card">
+    <div class="header-panel">
+        <span class="title" th:text="${tour.name}"></span>
+        <div class="right">
+            <span th:text="${#numbers.formatInteger(tour.price,0)}" class="price"></span><span class="currency"> руб.</span>
+        </div>
+    </div>
+    <div class="main-panel">
+        <div style="float: left">
+            <img th:src="${tour.mainImageUrl}" width="200" height="200" class="right">
+        </div>
+        <div style="margin-left: 210px" th:text="${tour.description}">>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="right-align footer-panel">
+        <a class="waves-effect waves-light btn"
+           th:href="@{/tour/{id}(id=${tour.id})}">Подробнее</a>
+    </div>
+</div>
+
+</body>
+</html>
