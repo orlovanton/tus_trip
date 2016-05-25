@@ -14,6 +14,7 @@ import ru.tustrip.portal.model.PortalUser;
 import ru.tustrip.portal.model.Tour;
 import ru.tustrip.portal.model.UserRole;
 import ru.tustrip.portal.service.CouponService;
+import ru.tustrip.portal.service.EmailService;
 import ru.tustrip.portal.service.TourService;
 import ru.tustrip.portal.service.UserService;
 import ru.tustrip.portal.utils.PortalRandomUtils;
@@ -33,6 +34,9 @@ public class GetCouponController {
 
     @Autowired
     private CouponService couponService;
+
+    @Autowired
+    private EmailService emailService;
 
     @RequestMapping(value = "/get_coupon/{tourId}", method = RequestMethod.GET)
     private String couponGet(final Model model,
@@ -58,9 +62,9 @@ public class GetCouponController {
             return "redirect:/error";
         }
 
-        //todo: send email
 
         //todo: register user
+        //todo: send registration email
 
         //todo: wrong logic! separate page to login
         PortalUser dbUser = userService.getUserByEmail(email);
@@ -87,6 +91,9 @@ public class GetCouponController {
         if (savedCoupon == null) {
             return "redirect:/error";
         }
+
+        //todo: send coupon email
+        emailService.sendCouponEmail(savedCoupon);
 
         return "redirect:/coupon_success/" + savedCoupon.getId();
     }
