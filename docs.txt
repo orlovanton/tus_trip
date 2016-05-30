@@ -1,0 +1,13 @@
+Добавление ключа:
+cat ~/.ssh/id_rsa.pub | ssh root@46.101.187.30 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
+
+Запуск
+java -jar -Dspring.profiles.active=dev target/tus-aggregator.jar
+java -jar -Dspring.profiles.active=prod -Djava.security.egd=file:/dev/./urandom tus-aggregator.jar
+
+
+CREATE DATABASE `tus` CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+создание синонима:
+ln -s /home/tus-aggregator.jar /etc/init.d/tus-aggregator

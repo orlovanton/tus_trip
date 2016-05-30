@@ -1,5 +1,7 @@
 package ru.tustrip.portal.controller.admin;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,10 @@ import ru.tustrip.portal.service.TourService;
  */
 @Controller
 public class AdminMainController {
+
+    private static final Logger logger = LoggerFactory
+            .getLogger(AdminMainController.class);
+
     @Autowired
     private AgentService agentService;
 
@@ -20,10 +26,11 @@ public class AdminMainController {
 
     @RequestMapping("/admin/")
     private String index(final Model model) {
-
+        logger.info("Admin index called");
 //        model.addAttribute("agent",agentService.getAllAgents());
         model.addAttribute("tours",tourService.getAllTours());
         model.addAttribute("agents", agentService.getAllAgents());
-        return "/admin/admin";
+        logger.info("done");
+        return "admin/admin";
     }
 }

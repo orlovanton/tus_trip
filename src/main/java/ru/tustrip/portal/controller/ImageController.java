@@ -46,8 +46,6 @@ public class ImageController {
             //todo: diff formats
             headers.setContentType(MediaType.IMAGE_JPEG);
             headers.setContentLength(imageBytes.length);
-
-
             return new HttpEntity<byte[]>(imageBytes, headers);
 
         } catch (Exception ex) {

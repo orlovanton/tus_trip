@@ -8,12 +8,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.tustrip.portal.model.Agent;
+import ru.tustrip.portal.model.Coupon;
 import ru.tustrip.portal.model.Tour;
 import ru.tustrip.portal.service.AgentService;
+import ru.tustrip.portal.service.CouponService;
 import ru.tustrip.portal.service.TourService;
+import ru.tustrip.portal.service.UserService;
 import ru.tustrip.portal.service.security.AgentUserDetails;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by antonorlov on 22/05/16.
@@ -29,6 +34,12 @@ public class AgentMainPageController {
     @Autowired
     private TourService tourService;
 
+    @Autowired
+    private CouponService couponService;
+
+    @Autowired
+    private UserService userService;
+
     @RequestMapping("agent_interface/")
     public String mainAgentPage(final Model model, Authentication authentication) {
 
@@ -37,12 +48,24 @@ public class AgentMainPageController {
 
             Long agentId = userDetails.getAgentId();
             Agent agent = agentService.getAgent(agentId);
+
             if(agent == null){
                 logger.error("Agent with id["+ agentId + "] not found");
                 return "error";
             }
-            List<Tour> agentTours = tourService.getAgentTours(agent);
 
+
+
+            List<Tour> agentTours = tourService.getAgentTours(agent);
+            Map<String,List<Coupon>> couponMap = new LinkedHashMap<>();
+
+            for (Tour agentTour : agentTours) {
+                List<Coupon> coupons = couponService.getCoupons(agentTour);
+                couponMap.put(agentTour.getName(), coupons);
+            }
+
+
+            model.addAttribute("couponMap", couponMap);
             model.addAttribute("tours", agentTours);
             return "agent/agent_main";
 

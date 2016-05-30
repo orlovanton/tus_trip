@@ -17,18 +17,68 @@
     <div class="section">
         <div class="row">
             <div class="col s12">
-                <table class="striped">
-                    <tr th:each="tour,iterStat : ${tours}">
-                        <td th:text="${tour.name}"></td>
-                        <td th:text="${tour.startDate}"></td>
-                        <td th:text="${tour.endDate}"></td>
-                        <td th:text="${tour.agent.name}"></td>
-                        <td th:text="${tour.mainImageUrl}"></td>
-                        <td> <a  th:href="@{/agent_interface/add_tour_image/{tourId}(tourId=${tour.id})}">Изображение</a> </td>
+                <section class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Туры
+                        </div>
+                        <table class="striped bordered">
+                            <thead>
+                            <tr>
+                                <td>Название</td>
+                                <td>Начало</td>
+                                <td>Конец</td>
+                                <td>Организатор</td>
+                                <td>todo: remove</td>
+                                <td>Редактировать</td>
+                            </tr>
+                            </thead>
+                            <tr th:each="tour,iterStat : ${tours}">
+                                <td th:text="${tour.name}"></td>
+                                <td th:text="${tour.startDate}"></td>
+                                <td th:text="${tour.endDate}"></td>
+                                <td th:text="${tour.agent.name}"></td>
+                                <td th:text="${tour.mainImageUrl}"></td>
+                                <td>
+                                    <a th:href="@{/agent_interface/add_tour_image/{tourId}(tourId=${tour.id})}">Изображение</a>
+                                </td>
 
-                    </tr>
-                </table>
-                <a th:href="@{/agent_interface/add_tour/}">Добавить Тур</a>
+                            </tr>
+                        </table>
+                        <br>
+                        <div class="right-align">
+                            <a th:href="@{/agent_interface/add_tour/}" class="waves-effect waves-light btn">Добавить Тур</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <section class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Купоны
+                        </div>
+                        <div th:each="mapEntry: ${couponMap}">
+                            <div th:if="${not #lists.isEmpty(mapEntry.value)}">
+                                <h3 th:text="${mapEntry.key}">No Id!</h3>
+                                <table class="bordered highlight">
+                                    <thead>
+                                    <tr>
+                                        <td>userId</td>
+                                        <td>Код купона</td>
+                                    </tr>
+                                    </thead>
+                                    <tr th:each="coupon, iterStat : ${mapEntry.value}">
+                                        <td th:text="${coupon.userId}"></td>
+                                        <td th:text="${coupon.code}"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>

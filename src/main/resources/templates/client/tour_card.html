@@ -16,20 +16,23 @@
     <div class="section">
         <div class="row">
             <div class="col s12">
-                <article>
-                    <div>
-                        <h1 th:text="${tour.name}"></h1>
-                    </div>
-                    <div class="row">
-                        <div class="col s3">
-                            <!--th:style="'background-image: url(' + ${tour.mainImageUrl}-->
-                            <img th:src="${tour.mainImageUrl}" width="100%">
+                <article class="card">
+                    <div class="card-content">
+                        <div>
+                            <h1 th:text="${tour.name}"></h1>
                         </div>
-                        <div class="col s9">
-                            <div th:text="${tour.description}"></div>
-                            <div class="right-align">
-                                <a class="waves-effect waves-light btn" href="#">Подпишись</a>
-                                <a class="waves-effect waves-light btn red"  th:href="@{/get_coupon/{tourId}(tourId=${tour.id})}">Купон на 500руб</a>
+                        <div class="row">
+                            <div class="col s3">
+                                <!--th:style="'background-image: url(' + ${tour.mainImageUrl}-->
+                                <img th:src="${tour.mainImageUrl}" width="100%">
+                            </div>
+                            <div class="col s9">
+                                <div th:text="${tour.description}"></div>
+                                <div class="right-align">
+                                    <a class="waves-effect waves-light btn" href="#">Подпишись</a>
+                                    <a class="waves-effect waves-light btn red"
+                                       th:href="@{/get_coupon/{tourId}(tourId=${tour.id})}">Купон на 500руб</a>
+                                </div>
                             </div>
                         </div>
                     </div>

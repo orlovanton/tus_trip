@@ -44,13 +44,14 @@ public class AddTourController {
 
     @RequestMapping(value = "/agent_interface/add_tour/", method = RequestMethod.GET)
     public String addTourGet(final Model model, TourForm tourForm) {
-        return "/agent/add_tour";
+        logger.info("addTourGet called");
+        return "agent/add_tour";
     }
 
     @RequestMapping(value = "/agent_interface/add_tour/", method = RequestMethod.POST)
     public String addTourPost(final Model model, @Valid TourForm tourForm,
                               BindingResult bindingResult, Authentication authentication) {
-
+        logger.info("addTourPost called");
         final Agent agent;
         if (authentication.getPrincipal() instanceof AgentUserDetails) {
             AgentUserDetails userDetails = (AgentUserDetails) authentication.getPrincipal();
@@ -69,7 +70,7 @@ public class AddTourController {
         logger.info(tourForm.toString());
 
         if (bindingResult.hasErrors()) {
-            return "/agent/add_tour";
+            return "agent/add_tour";
         }
 
 
@@ -77,6 +78,7 @@ public class AddTourController {
 
         Tour savedTour = tourService.saveTour(tour);
         //todo: next step
+        logger.info("tour add forwarding to step 2");
         return "redirect:/agent_interface/add_tour_image/" + savedTour.getId();
     }
 
@@ -85,7 +87,7 @@ public class AddTourController {
         Tour tour = tourService.getTour(tourId);
         model.addAttribute("tour", tour);
         //todo: push created tour
-        return "/agent/add_tour_image";
+        return "agent/add_tour_image";
     }
 
 
